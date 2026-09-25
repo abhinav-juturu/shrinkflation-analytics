@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"The Shrink Before the Hike": Silent Shrinkflation in Indian FMCG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="hero-header">
+      <div class="badge-tag">BUSINESS ANALYTICS CASE STUDY • FMCG EMPIRICAL RESEARCH</div>
+      <h1 class="hero-title">"The Shrink Before the Hike"</h1>
+      <p class="hero-subtitle">
+        Detecting Silent Shrinkflation in Indian Packaged Grocery Products: Longitudinal Econometric Decomposition, Brand Transparency Scorecards & Predictive Machine Learning
+      </p>
+      <div class="meta-row">
+        <span><strong class="accent">Academic Scope:</strong> Semester 7 Business Analytics</span>
+        <span><strong class="accent">Data Source:</strong> Web-Scraped Multi-Period Grocery Catalogs (Blinkit, BigBasket, Zepto, JioMart)</span>
+        <span><strong class="accent">Temporal Grid:</strong> 2022-Q1 to 2024-Q3 (6 Waves)</span>
+      </div>
+    </header>
+
+    <!-- Key Executive KPI Stat Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon">📦</div>
+        <div class="kpi-content">
+          <span class="kpi-label">Monitored SKUs</span>
+          <span class="kpi-value" id="kpi-total-skus">81</span>
+          <span class="kpi-sub">Across 6 FMCG Categories</span>
+        </div>
+      </div>
+      <div class="kpi-card alert-card">
+        <div class="kpi-icon">📉</div>
+        <div class="kpi-content">
+          <span class="kpi-label">Shrinkflation Incidence</span>
+          <span class="kpi-value" id="kpi-shrink-rate">61.7%</span>
+          <span class="kpi-sub">50 SKUs silently downsized</span>
+        </div>
+      </div>
+      <div class="kpi-card warning-card">
+        <div class="kpi-icon">💸</div>
+        <div class="kpi-content">
+          <span class="kpi-label">Avg. Effective Unit Inflation</span>
+          <span class="kpi-value" id="kpi-unit-inflation">+26.4%</span>
+          <span class="kpi-sub">True consumer cost jump</span>
+        </div>
+      </div>
+      <div class="kpi-card critical-card">
+        <div class="kpi-icon">🎯</div>
+        <div class="kpi-content">
+          <span class="kpi-label">Magic Price Vulnerability</span>
+          <span class="kpi-value" id="kpi-magic-rate">88.2%</span>
+          <span class="kpi-sub">₹5 / ₹10 / ₹20 pack downsize rate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Tabs Navigation -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-quadrant">4-Quadrant Pricing Matrix</button>
+      <button class="tab-btn" data-tab="tab-brands">Brand Transparency Scorecard</button>
+      <button class="tab-btn" data-tab="tab-sku">SKU Historical Timeline</button>
+      <button class="tab-btn" data-tab="tab-calculator">Consumer "Shrink-O-Meter"</button>
+      <button class="tab-btn" data-tab="tab-insights">Policy & Managerial Insights</button>
+    </nav>
+
+    <!-- TAB 1: 4-Quadrant Matrix -->
+    <section id="tab-quadrant" class="tab-pane active">
+      <div class="section-header">
+        <div>
+          <h2>Econometric Price-Weight Quadrant Analysis</h2>
+          <p class="section-desc">
+            Decomposing effective unit inflation into nominal price hikes vs stealth grammage reductions.
+          </p>
+        </div>
+        <div class="filter-controls">
+          <label>Category:</label>
+          <select id="quadrant-cat-filter" class="custom-select">
+            <option value="All">All Categories (81 SKUs)</option>
+            <option value="Biscuits & Bakery">Biscuits & Bakery</option>
+            <option value="Snacks & Instant Foods">Snacks & Instant Foods</option>
+            <option value="Personal Care & Soaps">Personal Care & Soaps</option>
+            <option value="Home Care & Cleaning">Home Care & Cleaning</option>
+            <option value="Dairy & Breakfast">Dairy & Breakfast</option>
+            <option value="Cooking Staples & Condiments">Cooking Staples & Condiments</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card glass chart-card">
+          <h3>Nominal Price Change vs. Pack Grammage Shift</h3>
+          <div class="chart-wrapper">
+            <canvas id="quadrantScatterChart"></canvas>
+          </div>
+          <div class="quadrant-legend">
+            <span class="legend-chip q2">■ Q2: Pure Silent Shrink (Weight ↓, Price =)</span>
+            <span class="legend-chip q3">■ Q3: Double Whammy (Weight ↓, Price ↑)</span>
+            <span class="legend-chip q1">■ Q1: Overt Inflation (Weight =, Price ↑)</span>
+            <span class="legend-chip q4">■ Q4: Fair / Stable Value</span>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h3>Pricing Archetype Breakdown</h3>
+          <div class="chart-wrapper-donut">
+            <canvas id="quadrantDonutChart"></canvas>
+          </div>
+          <div class="quadrant-summary-box">
+            <h4>Key Econometric Takeaways:</h4>
+            <ul>
+              <li><strong>Silent Shrinkflation Dominance:</strong> Over 48% of SKUs belong to <em>Quadrant II</em>, where price was held completely static at ₹5 or ₹10 while grammage reduced by 15% to 25%.</li>
+              <li><strong>Double Whammy Effect:</strong> 13.5% of products (e.g. Maggi, Dark Fantasy, Dove) implemented a two-stage strategy: first shedding 5-8% weight, followed by an overt ₹2–₹5 price hike in later waves.</li>
+              <li><strong>Staples & Bulk Resilience:</strong> Standard bulk commodities (1kg salt, 5kg atta, 1L edible oils) stayed in <em>Quadrant I</em> due to Legal Metrology standard packaging mandates.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: Brand Transparency Scorecard -->
+    <section id="tab-brands" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2>Brand Transparency Index (BTI) Leaderboard</h2>
+          <p class="section-desc">
+            Empirical scoring of Indian FMCG conglomerates based on shrinkflation incidence, stealth share, and packaging redesign masking.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card glass chart-card">
+          <h3>Conglomerate Transparency Scores (0–100)</h3>
+          <div class="chart-wrapper">
+            <canvas id="brandBarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card glass table-card">
+          <h3>Conglomerate Transparency Audit Table</h3>
+          <div class="table-responsive">
+            <table class="data-table" id="brand-table">
+              <thead>
+                <tr>
+                  <th>Parent Company</th>
+                  <th>Monitored SKUs</th>
+                  <th>Shrink Rate</th>
+                  <th>Stealth Index</th>
+                  <th>Score</th>
+                  <th>Risk Tier</th>
+                </tr>
+              </thead>
+              <tbody id="brand-table-body">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-callout">
+            <p><strong>BTI Formulation:</strong> $\text{BTI} = 100 - [45 \times (\text{Shrink Rate}) + 35 \times (\text{Avg Stealth Share}) + 20 \times (\text{Deceptive Masking Rate})]$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: SKU Historical Timeline -->
+    <section id="tab-sku" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2>SKU Longitudinal Shrinkflation Inspector</h2>
+          <p class="section-desc">Track grammage erosion, selling price, and effective unit cost across all 6 observation waves.</p>
+        </div>
+        <div class="filter-controls">
+          <label>Select Product SKU:</label>
+          <select id="sku-selector" class="custom-select">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card glass">
+          <div class="sku-profile-header">
+            <div>
+              <h3 id="sku-prod-name">Product Name</h3>
+              <p id="sku-brand-comp" class="sub-muted">Brand • Parent Company</p>
+            </div>
+            <div id="sku-archetype-badge" class="badge-pill">Quadrant</div>
+          </div>
+          <div class="sku-metrics-row">
+            <div class="sku-metric-item">
+              <span>Baseline Weight</span>
+              <strong id="sku-w1">--</strong>
+            </div>
+            <div class="sku-metric-item">
+              <span>Terminal Weight</span>
+              <strong id="sku-w6">--</strong>
+            </div>
+            <div class="sku-metric-item alert">
+              <span>Weight Change</span>
+              <strong id="sku-pct-w">--</strong>
+            </div>
+            <div class="sku-metric-item warning">
+              <span>Effective Unit Inflation</span>
+              <strong id="sku-pct-u">--</strong>
+            </div>
+          </div>
+          <div class="chart-wrapper" style="height: 280px; margin-top: 1rem;">
+            <canvas id="skuTimelineChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h3>Log-Differenced Decomposition Audit</h3>
+          <div class="decomposition-box">
+            <div class="decomp-bar-wrapper">
+              <label>Shrinkflation Contribution to Unit Inflation:</label>
+              <div class="progress-bar-container">
+                <div id="decomp-bar-shrink" class="progress-fill shrink-fill" style="width: 75%;">75%</div>
+                <div id="decomp-bar-price" class="progress-fill price-fill" style="width: 25%;">25%</div>
+              </div>
+              <div class="decomp-legend">
+                <span class="legend-dot shrink-dot"></span> Hidden Grammage Cut Share
+                <span class="legend-dot price-dot" style="margin-left: 1rem;"></span> Direct Price Hike Share
+              </div>
+            </div>
+            <div class="audit-details-list">
+              <div class="audit-row"><span>Magic Price Point:</span> <strong id="sku-magic-flag">Yes (₹10 Pack)</strong></div>
+              <div class="audit-row"><span>Packaging Type:</span> <strong id="sku-pack-type">Flow Wrap</strong></div>
+              <div class="audit-row"><span>Marketing Redesign Claim:</span> <strong id="sku-claim">New Look, Extra Crunch</strong></div>
+              <div class="audit-row"><span>Stealth Index (SI):</span> <strong id="sku-stealth-idx">0.82</strong></div>
+            </div>
+            <div class="regulatory-flag-box" id="sku-reg-alert">
+              <span class="alert-icon">⚠️</span>
+              <span id="sku-reg-text"><strong>High Deception Alert:</strong> Grammage reduced by 20% under cover of "New & Improved Look" without prominent on-pack disclosure.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Consumer Shrink-O-Meter -->
+    <section id="tab-calculator" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2>Consumer "Shrink-O-Meter" & Stealth Inflation Calculator</h2>
+          <p class="section-desc">
+            Empower everyday shoppers to detect hidden downsizing and compute the true equivalent price hike.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card glass calculator-card">
+          <h3>Enter Pack Details</h3>
+          <div class="calc-inputs-grid">
+            <div class="input-group">
+              <label>Old Package Weight / Volume:</label>
+              <div class="input-addon">
+                <input type="number" id="calc-old-weight" value="65" min="1" step="0.5" />
+                <span>grams / ml</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Old MRP / Selling Price:</label>
+              <div class="input-addon">
+                <span>₹</span>
+                <input type="number" id="calc-old-price" value="5" min="1" step="0.5" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label>New Package Weight / Volume:</label>
+              <div class="input-addon">
+                <input type="number" id="calc-new-weight" value="50" min="1" step="0.5" />
+                <span>grams / ml</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>New MRP / Selling Price:</label>
+              <div class="input-addon">
+                <span>₹</span>
+                <input type="number" id="calc-new-price" value="5" min="1" step="0.5" />
+              </div>
+            </div>
+          </div>
+          <button id="btn-calculate-shrink" class="btn-primary">Calculate True Stealth Inflation</button>
+
+          <div class="quick-examples">
+            <span>Try real Indian benchmarks:</span>
+            <button class="chip-btn" data-oldw="65" data-oldp="5" data-neww="50" data-newp="5">Parle-G (₹5)</button>
+            <button class="chip-btn" data-oldw="80" data-oldp="12" data-neww="70" data-newp="14">Maggi (₹12→14)</button>
+            <button class="chip-btn" data-oldw="55" data-oldp="10" data-neww="38" data-newp="10">Haldiram's Bhujia (₹10)</button>
+            <button class="chip-btn" data-oldw="155" data-oldp="10" data-neww="115" data-newp="10">Vim Bar (₹10)</button>
+          </div>
+        </div>
+
+        <div class="card glass results-card">
+          <h3>Stealth Inflation Diagnostics</h3>
+          <div class="calc-results-display" id="calc-results-view">
+            <div class="result-badge-large" id="res-badge">SILENT SHRINKFLATION DETECTED</div>
+            <div class="calc-metrics-row">
+              <div class="metric-block alert">
+                <span class="m-label">Hidden Grammage Cut</span>
+                <span class="m-val" id="res-weight-cut">-23.1%</span>
+              </div>
+              <div class="metric-block warning">
+                <span class="m-label">Effective Unit Price Hike</span>
+                <span class="m-val" id="res-unit-hike">+30.0%</span>
+              </div>
+            </div>
+            <div class="equivalent-price-box">
+              <p>What you should have paid if the pack size stayed identical:</p>
+              <h2 id="res-equiv-price">₹6.50 <small class="text-muted">(Nominal ₹5 mask)</small></h2>
+              <p class="stealth-explanation" id="res-explanation">
+                Even though the nominal price remained unchanged at ₹5, shrinking from 65g to 50g represents a stealth price increase of <strong>30.0%</strong>!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: Policy & Managerial Insights -->
+    <section id="tab-insights" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2>Business Insights & Regulatory Policy Framework</h2>
+          <p class="section-desc">Actionable recommendations for FMCG leadership, consumer protection agencies (CCPA), and consumers.</p>
+        </div>
+      </div>
+
+      <div class="grid-3col">
+        <div class="card glass insight-card">
+          <div class="insight-icon">⚖️</div>
+          <h3>Central Consumer Protection Authority (CCPA)</h3>
+          <ul>
+            <li><strong>Mandatory Dual Unit Pricing:</strong> Enforce prominent display of unit cost (₹ per 100g/ml) on front-of-pack and e-commerce listings alongside nominal MRP.</li>
+            <li><strong>Mandatory Downsize Badge:</strong> Require a visible "Grammage Reduced by X%" badge for 90 days following any volume cut exceeding 3%.</li>
+            <li><strong>Stricter Reformulation Disclosures:</strong> Prohibit masking downsizing behind "New & Improved Look" claims unless nutritional/active density has objectively increased.</li>
+          </ul>
+        </div>
+
+        <div class="card glass insight-card">
+          <div class="insight-icon">🏢</div>
+          <h3>FMCG Executive Strategy</h3>
+          <ul>
+            <li><strong>Trust-Centric Transparent Pricing:</strong> Evidence indicates long-term brand equity erosion when consumers discover stealth cuts on social media. Transparent modest price hikes preserve loyalty better than deceptive downsizing.</li>
+            <li><strong>Price Pack Architecture (PPA):</strong> Introduce differentiated tiered offerings (e.g. entry bridge pack at ₹7 or ₹12) instead of continuously decimating ₹5/₹10 core product grammage.</li>
+            <li><strong>Value-Add Reformulation:</strong> If downsizing is inevitable due to commodity shocks, pair it with verifiable functional upgrades rather than cosmetic packaging illusions.</li>
+          </ul>
+        </div>
+
+        <div class="card glass insight-card">
+          <div class="insight-icon">🛒</div>
+          <h3>Consumer Vigilance Strategies</h3>
+          <ul>
+            <li><strong>Focus on Unit Cost Over Pack MRP:</strong> Always compare ₹/100g across competing brands on quick-commerce apps rather than looking solely at the ₹10 or ₹20 price point.</li>
+            <li><strong>Beware of Nitrogen Puffing:</strong> Chips and snack pouches often expand pouch volume using inert gas while reducing internal product grammage.</li>
+            <li><strong>Crowdsourced Transparency:</strong> Report deceptive downsizing instances to consumer grievance portals and social transparency repositories.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Business Analytics Individual Case Study • Developed for Semester 7 Coursework</p>
+      <p class="sub-muted">Methods: Econometric Log-Differenced Decomposition, Random Forest Classifier (AUC > 0.88), Brand Transparency Index (BTI)</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
