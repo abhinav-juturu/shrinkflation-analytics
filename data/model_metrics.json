@@ -1,0 +1,357 @@
+{
+    "dataset_summary": {
+        "total_skus": 1400,
+        "total_observations": 16800,
+        "time_span": "2022-Q1 to 2024-Q4 (12 Waves)",
+        "shrinkflated_sku_count": 960,
+        "shrinkflated_percentage": 68.6,
+        "average_unit_price_inflation": 31.9,
+        "average_weight_reduction_in_shrunk_skus": -21.8,
+        "magic_price_point_shrink_rate": 95.1,
+        "standard_pack_shrink_rate": 45.2
+    },
+    "model_performance": {
+        "logistic_regression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "roc_auc": 1.0,
+            "cv_accuracy_10fold": 1.0,
+            "confusion_matrix": [
+                [
+                    110,
+                    0
+                ],
+                [
+                    0,
+                    240
+                ]
+            ]
+        },
+        "random_forest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "roc_auc": 1.0,
+            "cv_accuracy_10fold": 1.0,
+            "confusion_matrix": [
+                [
+                    110,
+                    0
+                ],
+                [
+                    0,
+                    240
+                ]
+            ]
+        },
+        "gradient_boosting": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "roc_auc": 1.0,
+            "cv_accuracy_10fold": 1.0,
+            "confusion_matrix": [
+                [
+                    110,
+                    0
+                ],
+                [
+                    0,
+                    240
+                ]
+            ]
+        }
+    },
+    "brand_transparency_table": [
+        {
+            "parent_company": "Bikaji Foods",
+            "sku_count": 37,
+            "shrink_count": 32,
+            "shrink_rate": 0.8648648648648649,
+            "avg_stealth_index": 0.5489189189189189,
+            "avg_unit_price_hike": 33.097027027027025,
+            "deceptive_claim_rate": 0.8648648648648649,
+            "transparency_score": 24.6,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "PepsiCo India",
+            "sku_count": 67,
+            "shrink_count": 58,
+            "shrink_rate": 0.8656716417910447,
+            "avg_stealth_index": 0.5448029850746269,
+            "avg_unit_price_hike": 33.80940298507463,
+            "deceptive_claim_rate": 0.8656716417910447,
+            "transparency_score": 24.7,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Mondelez India",
+            "sku_count": 54,
+            "shrink_count": 45,
+            "shrink_rate": 0.8333333333333334,
+            "avg_stealth_index": 0.49701666666666666,
+            "avg_unit_price_hike": 36.21703703703704,
+            "deceptive_claim_rate": 0.8333333333333334,
+            "transparency_score": 28.4,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Haldiram Snacks",
+            "sku_count": 54,
+            "shrink_count": 44,
+            "shrink_rate": 0.8148148148148148,
+            "avg_stealth_index": 0.521988888888889,
+            "avg_unit_price_hike": 33.336666666666666,
+            "deceptive_claim_rate": 0.8148148148148148,
+            "transparency_score": 28.8,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Britannia Industries",
+            "sku_count": 114,
+            "shrink_count": 93,
+            "shrink_rate": 0.8157894736842105,
+            "avg_stealth_index": 0.5065771929824562,
+            "avg_unit_price_hike": 33.5619298245614,
+            "deceptive_claim_rate": 0.8157894736842105,
+            "transparency_score": 29.2,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Priya Gold",
+            "sku_count": 37,
+            "shrink_count": 30,
+            "shrink_rate": 0.8108108108108109,
+            "avg_stealth_index": 0.5073567567567568,
+            "avg_unit_price_hike": 33.93,
+            "deceptive_claim_rate": 0.8108108108108109,
+            "transparency_score": 29.5,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Parle Products",
+            "sku_count": 80,
+            "shrink_count": 63,
+            "shrink_rate": 0.7875,
+            "avg_stealth_index": 0.49796125,
+            "avg_unit_price_hike": 33.565,
+            "deceptive_claim_rate": 0.7875,
+            "transparency_score": 31.4,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Balaji Wafers",
+            "sku_count": 33,
+            "shrink_count": 26,
+            "shrink_rate": 0.7878787878787878,
+            "avg_stealth_index": 0.4932363636363637,
+            "avg_unit_price_hike": 32.35787878787879,
+            "deceptive_claim_rate": 0.7878787878787878,
+            "transparency_score": 31.5,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "CG Foods",
+            "sku_count": 23,
+            "shrink_count": 18,
+            "shrink_rate": 0.782608695652174,
+            "avg_stealth_index": 0.46910434782608695,
+            "avg_unit_price_hike": 33.84391304347826,
+            "deceptive_claim_rate": 0.782608695652174,
+            "transparency_score": 32.7,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Godrej Consumer",
+            "sku_count": 33,
+            "shrink_count": 25,
+            "shrink_rate": 0.7575757575757576,
+            "avg_stealth_index": 0.5039969696969697,
+            "avg_unit_price_hike": 32.344545454545454,
+            "deceptive_claim_rate": 0.7575757575757576,
+            "transparency_score": 33.1,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Patanjali Ayurved",
+            "sku_count": 22,
+            "shrink_count": 17,
+            "shrink_rate": 0.7727272727272727,
+            "avg_stealth_index": 0.47055454545454545,
+            "avg_unit_price_hike": 35.553636363636365,
+            "deceptive_claim_rate": 0.7727272727272727,
+            "transparency_score": 33.3,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Kellogg India",
+            "sku_count": 32,
+            "shrink_count": 25,
+            "shrink_rate": 0.78125,
+            "avg_stealth_index": 0.400803125,
+            "avg_unit_price_hike": 36.6509375,
+            "deceptive_claim_rate": 0.78125,
+            "transparency_score": 35.2,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Nestle India",
+            "sku_count": 87,
+            "shrink_count": 63,
+            "shrink_rate": 0.7241379310344828,
+            "avg_stealth_index": 0.4546540229885057,
+            "avg_unit_price_hike": 32.727701149425286,
+            "deceptive_claim_rate": 0.7241379310344828,
+            "transparency_score": 37.0,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Colgate-Palmolive India",
+            "sku_count": 40,
+            "shrink_count": 27,
+            "shrink_rate": 0.675,
+            "avg_stealth_index": 0.42054,
+            "avg_unit_price_hike": 32.63225,
+            "deceptive_claim_rate": 0.675,
+            "transparency_score": 41.4,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Unibic Foods",
+            "sku_count": 33,
+            "shrink_count": 22,
+            "shrink_rate": 0.6666666666666666,
+            "avg_stealth_index": 0.4278272727272727,
+            "avg_unit_price_hike": 28.726969696969697,
+            "deceptive_claim_rate": 0.6666666666666666,
+            "transparency_score": 41.7,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "ITC Limited",
+            "sku_count": 132,
+            "shrink_count": 88,
+            "shrink_rate": 0.6666666666666666,
+            "avg_stealth_index": 0.42359924242424246,
+            "avg_unit_price_hike": 31.96719696969697,
+            "deceptive_claim_rate": 0.6666666666666666,
+            "transparency_score": 41.8,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Dabur India",
+            "sku_count": 67,
+            "shrink_count": 43,
+            "shrink_rate": 0.6417910447761194,
+            "avg_stealth_index": 0.4123850746268657,
+            "avg_unit_price_hike": 30.59582089552239,
+            "deceptive_claim_rate": 0.6417910447761194,
+            "transparency_score": 43.9,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Hindustan Unilever",
+            "sku_count": 146,
+            "shrink_count": 94,
+            "shrink_rate": 0.6438356164383562,
+            "avg_stealth_index": 0.4026719178082192,
+            "avg_unit_price_hike": 31.61678082191781,
+            "deceptive_claim_rate": 0.6438356164383562,
+            "transparency_score": 44.1,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Marico",
+            "sku_count": 50,
+            "shrink_count": 32,
+            "shrink_rate": 0.64,
+            "avg_stealth_index": 0.38474600000000003,
+            "avg_unit_price_hike": 33.0346,
+            "deceptive_claim_rate": 0.64,
+            "transparency_score": 44.9,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Jyothy Labs",
+            "sku_count": 35,
+            "shrink_count": 22,
+            "shrink_rate": 0.6285714285714286,
+            "avg_stealth_index": 0.4081971428571428,
+            "avg_unit_price_hike": 31.268000000000004,
+            "deceptive_claim_rate": 0.6285714285714286,
+            "transparency_score": 44.9,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Reckitt Benckiser",
+            "sku_count": 50,
+            "shrink_count": 29,
+            "shrink_rate": 0.58,
+            "avg_stealth_index": 0.367912,
+            "avg_unit_price_hike": 29.668000000000003,
+            "deceptive_claim_rate": 0.58,
+            "transparency_score": 49.4,
+            "risk_tier": "High Shrinkflation Risk (Stealth Dominant)"
+        },
+        {
+            "parent_company": "Mother Dairy",
+            "sku_count": 17,
+            "shrink_count": 9,
+            "shrink_rate": 0.5294117647058824,
+            "avg_stealth_index": 0.4143352941176471,
+            "avg_unit_price_hike": 24.320588235294117,
+            "deceptive_claim_rate": 0.5294117647058824,
+            "transparency_score": 51.1,
+            "risk_tier": "Moderate Risk (Mixed Disclosure)"
+        },
+        {
+            "parent_company": "GCMMF (Amul)",
+            "sku_count": 56,
+            "shrink_count": 31,
+            "shrink_rate": 0.5535714285714286,
+            "avg_stealth_index": 0.3438732142857143,
+            "avg_unit_price_hike": 28.98107142857143,
+            "deceptive_claim_rate": 0.5535714285714286,
+            "transparency_score": 52.0,
+            "risk_tier": "Moderate Risk (Mixed Disclosure)"
+        },
+        {
+            "parent_company": "Procter & Gamble India",
+            "sku_count": 21,
+            "shrink_count": 6,
+            "shrink_rate": 0.2857142857142857,
+            "avg_stealth_index": 0.16872380952380953,
+            "avg_unit_price_hike": 21.98190476190476,
+            "deceptive_claim_rate": 0.2857142857142857,
+            "transparency_score": 75.5,
+            "risk_tier": "Transparent (Pro-Consumer)"
+        },
+        {
+            "parent_company": "Tata Consumer Products",
+            "sku_count": 33,
+            "shrink_count": 4,
+            "shrink_rate": 0.12121212121212122,
+            "avg_stealth_index": 0.06412424242424242,
+            "avg_unit_price_hike": 25.026969696969697,
+            "deceptive_claim_rate": 0.12121212121212122,
+            "transparency_score": 89.9,
+            "risk_tier": "Transparent (Pro-Consumer)"
+        },
+        {
+            "parent_company": "Adani Wilmar",
+            "sku_count": 35,
+            "shrink_count": 4,
+            "shrink_rate": 0.11428571428571428,
+            "avg_stealth_index": 0.07017428571428572,
+            "avg_unit_price_hike": 22.597142857142856,
+            "deceptive_claim_rate": 0.11428571428571428,
+            "transparency_score": 90.1,
+            "risk_tier": "Transparent (Pro-Consumer)"
+        }
+    ]
+}
