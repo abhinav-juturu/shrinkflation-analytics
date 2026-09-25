@@ -124,12 +124,6 @@ BA_Individual_CaseStudy/
 │   ├── Fig6_roc_curves.png
 │   ├── Fig7_feature_importance.png
 │   └── Fig8_confusion_matrix.png
-├── scripts/
-│   ├── scrape_and_generate_data.py           # Longitudinal panel data generation engine
-│   ├── analytics_and_ml.py                   # Econometric analysis, ML training, & BTI scoring
-│   ├── build_notebook.py                     # Script to assemble analysis.ipynb
-│   └── generate_pdf_report.py                # Automated PDF report builder
-└── web/                                      # Interactive web dashboard prototype
 ```
 
 ---
